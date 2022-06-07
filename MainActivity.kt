@@ -12,21 +12,22 @@ class MainActivity : AppCompatActivity(), MainView {
     private lateinit var btnHitungLuas: Button
     private lateinit var btnHitungKeliling: Button
     private lateinit var tvHasil: TextView
+    lateinit var mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
         mainPresenter = MainPresenter(this)
         etPanjang = findViewById(R.id.et_panjang)
         etLebar = findViewById(R.id.et_lebar)
         btnHitungKeliling = findViewById(R.id.btn_hitungKeliling)
         btnHitungLuas = findViewById(R.id.btn_hitungLuas)
         tvHasil = findViewById(R.id.tv_hasil)
-        
+
         btnHitungLuas.setOnClickListener{
-            val panjang = etPanjang.text.toString()
-            val lebar = etLebar.text.toString()
+            val panjang = etPanjang.text.toString().toFloat()
+            val lebar = etLebar.text.toString().toFloat()
             mainPresenter.hitungKelilingPersegiPanjang(panjang, lebar)
         }
     }
