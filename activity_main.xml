@@ -6,40 +6,47 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_200"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/et_panjang"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Panjang"
         android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/et_lebar"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Lebar"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
 
     <Button
         android:id="@+id/btn_hitungLuas"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Hitung Luas"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
     <Button
         android:id="@+id/btn_hitungKeliling"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Hitung Keliling"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/tv_hasil"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Hasil"
-        android:layout_gravity="center"/>
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
 
 </LinearLayout>
