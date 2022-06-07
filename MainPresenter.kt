@@ -1,5 +1,5 @@
 package com.example.mvp
-
+// membuat class MainPresenter.kt
 class MainPresenter(private val mainView: MainView) {
     fun hitungLuasPersegiPanjang(panjang: Float, lebar: Float){
         if(panjang == 0F || panjang == null){
