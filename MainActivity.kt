@@ -2,11 +2,14 @@ package com.example.mvp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), MainView {
+
     private lateinit var etPanjang: EditText
     private lateinit var etLebar: EditText
     private lateinit var btnHitungLuas: Button
@@ -16,6 +19,11 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide(); // hide the action bar
+
+        window?.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN) // hide status bar
+
         setContentView(R.layout.activity_main)
 
         mainPresenter = MainPresenter(this)
@@ -28,8 +36,15 @@ class MainActivity : AppCompatActivity(), MainView {
         btnHitungLuas.setOnClickListener{
             val panjang = etPanjang.text.toString().toFloat()
             val lebar = etLebar.text.toString().toFloat()
+            mainPresenter.hitungLuasPersegiPanjang(panjang, lebar)
+        }
+
+        btnHitungKeliling.setOnClickListener{
+            val panjang = etPanjang.text.toString().toFloat()
+            val lebar = etLebar.text.toString().toFloat()
             mainPresenter.hitungKelilingPersegiPanjang(panjang, lebar)
         }
+
     }
 
     override fun updateLuas(luas: Float) {
@@ -41,7 +56,6 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showError(errorMsg: String) {
-        TODO("Not yet implemented")
+        tvHasil.text = errorMsg
     }
 }
-
